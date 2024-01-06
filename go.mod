@@ -1,4 +1,4 @@
-module zenity
+module github.com/r0123r/zenity
 
 go 1.20
 
