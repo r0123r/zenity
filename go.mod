@@ -1,4 +1,4 @@
-module github.com/ncruces/zenity
+module zenity
 
 go 1.20
 
