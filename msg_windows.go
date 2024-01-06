@@ -3,6 +3,8 @@ package zenity
 import (
 	"context"
 
+	"golang.org/x/sys/windows"
+
 	"github.com/ncruces/zenity/internal/win"
 )
 
@@ -19,7 +21,9 @@ func message(kind messageKind, text string, opts options) error {
 	default:
 		opts.cancelLabel = opts.okLabel
 	}
-
+	if opts.modal {
+		flags |= windows.MB_SYSTEMMODAL
+	}
 	switch opts.icon {
 	case ErrorIcon:
 		flags |= win.MB_ICONERROR
