@@ -179,7 +179,9 @@ func (dlg *progressDialog) setup(opts options) error {
 			_WS_ZEN_BUTTON,
 			12, 58, 75, 24, dlg.wnd, win.IDNO, instance, nil)
 	}
-
+	if opts.modal {
+		win.SetWindowPos(dlg.wnd, win.HWND(intptr(-1)), 0, 0, 0, 0, win.SWP_NOMOVE|win.SWP_NOSIZE)
+	}
 	dlg.layout(getDPI(dlg.wnd))
 	centerWindow(dlg.wnd)
 	win.ShowWindow(dlg.wnd, win.SW_NORMAL)
